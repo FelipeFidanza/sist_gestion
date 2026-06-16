@@ -1,0 +1,11 @@
+# Levanta el prototipo SGIF en http://localhost:3000
+# Uso:  docker compose up --build
+services:
+  sgif:
+    build: .
+    container_name: sgif-la-fabiana
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

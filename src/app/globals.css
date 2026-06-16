@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f4f6f5;
+  --foreground: #2b2d33;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-carbon-200/70 bg-white shadow-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-verde-600 text-white hover:bg-verde-700;
+  }
+
+  .btn-magenta {
+    @apply btn bg-magenta-600 text-white hover:bg-magenta-700;
+  }
+
+  .btn-ghost {
+    @apply btn border border-carbon-200 bg-white text-carbon-700 hover:bg-carbon-50;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-carbon-200 bg-white px-3.5 py-2.5 text-sm text-carbon-900 outline-none transition placeholder:text-carbon-400 focus:border-verde-400 focus:ring-2 focus:ring-verde-200;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-carbon-700;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scrollbar sutil acorde a la marca */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfd6d3;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb8b4;
+  background-clip: content-box;
+}
