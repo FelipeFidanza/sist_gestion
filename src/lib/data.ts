@@ -1,6 +1,5 @@
 import type {
   Consulta,
-  Kpi,
   NovedadDiaria,
   PersonaAutorizada,
   Residente,
@@ -366,41 +365,6 @@ export const AUTORIZADOS: Record<string, PersonaAutorizada[]> = {
   "r-003": [{ nombre: "Lucia Pereyra", documento: "30.114.998", vinculo: "Hija" }],
   "r-004": [{ nombre: "Daniel Sosa", documento: "26.540.330", vinculo: "Hijo" }],
 };
-
-export const KPIS: Kpi[] = [
-  {
-    perspectiva: "Clientes",
-    titulo: "Satisfaccion de familiares",
-    valor: "91%",
-    meta: "Meta > 90%",
-    progreso: 91,
-    tendencia: "up",
-  },
-  {
-    perspectiva: "Procesos internos",
-    titulo: "Comunicaciones diarias en tiempo y forma",
-    valor: "96%",
-    meta: "Meta > 95%",
-    progreso: 96,
-    tendencia: "up",
-  },
-  {
-    perspectiva: "Procesos internos",
-    titulo: "Cumplimiento de protocolos de visitas",
-    valor: "97%",
-    meta: "Meta > 95%",
-    progreso: 97,
-    tendencia: "flat",
-  },
-  {
-    perspectiva: "Aprendizaje",
-    titulo: "Personal que usa correctamente el sistema",
-    valor: "93%",
-    meta: "Meta > 95%",
-    progreso: 93,
-    tendencia: "up",
-  },
-];
 
 // ---------------------------------------------------------------------------
 // Helpers de datos

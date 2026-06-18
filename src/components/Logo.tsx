@@ -2,6 +2,7 @@ interface LogoProps {
   size?: number;
   showText?: boolean;
   variant?: "dark" | "light";
+  layout?: "row" | "col";
   className?: string;
 }
 
@@ -11,20 +12,32 @@ export function Logo({
   size = 40,
   showText = true,
   variant = "dark",
+  layout = "row",
   className = "",
 }: LogoProps) {
   const textColor = variant === "light" ? "text-white" : "text-carbon-900";
   const subColor = variant === "light" ? "text-white/70" : "text-carbon-400";
+  const esCol = layout === "col";
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div
+      className={`flex ${esCol ? "flex-col items-center gap-4 text-center" : "items-center gap-3"} ${className}`}
+    >
       <LeafMark size={size} />
       {showText && (
         <div className="leading-none">
-          <span className={`block font-display text-lg font-700 tracking-tight ${textColor}`}>
+          <span
+            className={`block font-display font-700 tracking-tight ${textColor} ${
+              esCol ? "text-3xl" : "text-lg"
+            }`}
+          >
             LA FABIANA
           </span>
-          <span className={`block text-[9px] font-medium uppercase tracking-[0.18em] ${subColor}`}>
+          <span
+            className={`mt-1 block font-medium uppercase tracking-[0.18em] ${subColor} ${
+              esCol ? "text-[11px]" : "text-[9px]"
+            }`}
+          >
             Residencia para adultos mayores
           </span>
         </div>

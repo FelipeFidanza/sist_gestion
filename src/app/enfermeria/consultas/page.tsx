@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const ENFERMERA = "Enf. Laura Benitez";
 
-export default function PersonalConsultas() {
+export default function EnfermeriaConsultas() {
   const [consultas, setConsultas] = useState<Consulta[]>(CONSULTAS);
   const [seleccion, setSeleccion] = useState<string>(CONSULTAS[0]?.id ?? "");
   const [respuesta, setRespuesta] = useState("");

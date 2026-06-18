@@ -12,7 +12,7 @@ const estadoMeta: Record<EstadoReunion, { label: string; tone: "amarillo" | "ver
   realizada: { label: "Realizada", tone: "carbon" },
 };
 
-export default function PersonalReuniones() {
+export default function CoordinacionReuniones() {
   const [reuniones, setReuniones] = useState<Reunion[]>(REUNIONES);
   const [form, setForm] = useState({
     residenteId: RESIDENTES[0].id,
