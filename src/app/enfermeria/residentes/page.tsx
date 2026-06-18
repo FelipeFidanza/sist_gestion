@@ -3,7 +3,7 @@ import { CONSULTAS, NOVEDADES, RESIDENTES } from "@/lib/data";
 import { fmtFecha } from "@/lib/format";
 import Link from "next/link";
 
-export default function PersonalResidentes() {
+export default function EnfermeriaResidentes() {
   return (
     <>
       <PageHeader
@@ -13,16 +13,14 @@ export default function PersonalResidentes() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {RESIDENTES.map((r) => {
-          const tieneNovedad = NOVEDADES.some(
-            (n) => n.residenteId === r.id && esHoy(n.fecha),
-          );
+          const tieneNovedad = NOVEDADES.some((n) => n.residenteId === r.id && esHoy(n.fecha));
           const consultas = CONSULTAS.filter(
             (c) => c.residenteId === r.id && c.estado === "pendiente",
           ).length;
           return (
             <Link
               key={r.id}
-              href={`/personal/residentes/${r.id}`}
+              href={`/enfermeria/residentes/${r.id}`}
               className="card p-5 transition-all hover:shadow-card"
             >
               <div className="flex items-center gap-3">
@@ -52,7 +50,5 @@ export default function PersonalResidentes() {
 }
 
 function esHoy(iso: string): boolean {
-  const d = new Date(iso);
-  const hoy = new Date();
-  return d.toDateString() === hoy.toDateString();
+  return new Date(iso).toDateString() === new Date().toDateString();
 }

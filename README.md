@@ -27,13 +27,13 @@ El prototipo cubre los **requisitos funcionales** definidos en el documento del 
 | # | Requisito | MoSCoW | Dónde se ve en el prototipo |
 |---|-----------|--------|------------------------------|
 | 1 | Visualizar información del residente (alimentación, ánimo, medicación, actividades, observaciones, incidentes) | Must | Portal Familiar → **Inicio** |
-| 2 | Obtener información automáticamente desde Nexup | Must | Insignia **"Sincronizado desde Nexup"** en reportes y KPIs |
+| 2 | Obtener información automáticamente desde Nexup | Must | Insignia **"Sincronizado desde Nexup"** en los reportes diarios |
 | 3 | Permitir a los familiares realizar consultas | Must | Portal Familiar → **Consultas** |
-| 4 | Permitir al personal responder consultas | Must | Panel Personal → **Consultas** |
+| 4 | Permitir al personal responder consultas | Must | Enfermería → **Consultas** |
 | 5 | Mantener historial de consultas y respuestas | Should | Hilos de conversación en ambas vistas de Consultas |
-| 6 | Registrar fechas y horarios de reuniones de seguimiento | Could | Panel Personal → **Reuniones** |
-| 7 | Almacenar observaciones y conclusiones de reuniones | Could | Panel Personal → **Reuniones** (y se ven en el portal del familiar) |
-| 8 | Registrar ingreso y egreso de visitantes | Must | Panel Personal → **Visitas** / Portal Familiar → **Mis visitas** |
+| 6 | Registrar fechas y horarios de reuniones de seguimiento | Could | Coordinación → **Reuniones** |
+| 7 | Almacenar observaciones y conclusiones de reuniones | Could | Coordinación → **Reuniones** (y se ven en el portal del familiar) |
+| 8 | Registrar ingreso y egreso de visitantes | Must | Administración → **Visitas** / Portal Familiar → **Mis visitas** |
 | 9 | Verificar si un visitante está autorizado | Must | Verificación de autorización en **Visitas** |
 | 10 | Mantener historial de visitas | Should | Tabla de registro de visitas |
 
@@ -41,22 +41,31 @@ El prototipo cubre los **requisitos funcionales** definidos en el documento del 
 
 ## 🧭 Estructura de la aplicación
 
-El sistema tiene dos perfiles de acceso, que se eligen en la pantalla de inicio:
+El sistema tiene **cuatro perfiles de acceso**, que se eligen en la pantalla de inicio. El
+personal de la residencia se divide en tres roles, cada uno con su propio panel de resumen y
+solo las secciones que le competen:
 
-### 👨‍👩‍👧 Portal de Familiares (`/familiar`)
+### 👨‍👩‍👧 Familiar (`/familiar`)
 - **Inicio** — ficha del residente, reporte del día con signos vitales y novedades por categoría, accesos rápidos.
 - **Consultas** — crear consultas y seguir las respuestas en formato chat.
 - **Reuniones** — próximas reuniones (con confirmación de asistencia) e historial con conclusiones.
 - **Mis visitas** — registrar el ingreso (con verificación de autorización) e historial de visitas.
 
-### 🩺 Panel del Personal (`/personal`)
-- **Panel** — resumen operativo, consultas pendientes, próximas reuniones e indicadores (KPIs).
+### 🩺 Enfermería (`/enfermeria`)
+- **Panel** — resumen: consultas por responder y residentes a seguir en el día.
 - **Residentes** — listado y detalle de cada residente con sus reportes diarios.
 - **Consultas** — bandeja de entrada para responder a los familiares.
-- **Reuniones** — planificar encuentros y registrar conclusiones.
+
+### 🗂️ Administración (`/administracion`)
+- **Panel** — resumen: visitas en curso y últimas visitas registradas.
 - **Visitas** — recepción de visitantes con verificación de autorización y control de ingreso/egreso.
 
+### 📅 Coordinación (`/coordinacion`) — *encargada del equipo interdisciplinario*
+- **Panel** — resumen: reuniones por confirmar y próximas reuniones.
+- **Reuniones** — planificar encuentros y registrar conclusiones.
+
 > El acceso es **de demostración**: no pide credenciales. El "login" simplemente elige el rol.
+> Los paneles son resúmenes operativos simples (sin KPIs ni gráficos).
 
 ---
 
@@ -125,20 +134,26 @@ src/
 │   ├── page.tsx               # Pantalla de inicio / selección de rol
 │   ├── layout.tsx             # Layout raíz (fuentes, metadata)
 │   ├── globals.css            # Estilos base + utilidades de marca
-│   ├── familiar/              # Portal de Familiares
+│   ├── familiar/              # Rol: Familiar
 │   │   ├── layout.tsx
 │   │   ├── page.tsx           # Inicio
 │   │   ├── consultas/
 │   │   ├── reuniones/
 │   │   └── visitas/
-│   └── personal/              # Panel del Personal
+│   ├── enfermeria/            # Rol: Enfermería
+│   │   ├── layout.tsx
+│   │   ├── page.tsx           # Panel (resumen)
+│   │   ├── residentes/
+│   │   │   └── [id]/          # Detalle de residente
+│   │   └── consultas/
+│   ├── administracion/        # Rol: Administración
+│   │   ├── layout.tsx
+│   │   ├── page.tsx           # Panel (resumen)
+│   │   └── visitas/
+│   └── coordinacion/          # Rol: Coordinación (equipo interdisciplinario)
 │       ├── layout.tsx
-│       ├── page.tsx           # Panel / KPIs
-│       ├── residentes/
-│       │   └── [id]/          # Detalle de residente
-│       ├── consultas/
-│       ├── reuniones/
-│       └── visitas/
+│       ├── page.tsx           # Panel (resumen)
+│       └── reuniones/
 ├── components/
 │   ├── AppShell.tsx           # Layout con sidebar + topbar
 │   ├── Logo.tsx               # Isologo en SVG

@@ -13,10 +13,12 @@ export interface NavItem {
   icon: ReactNode;
 }
 
+type RolTone = "verde" | "magenta" | "lima";
+
 interface AppShellProps {
   navItems: NavItem[];
   rolLabel: string;
-  rolTone: "verde" | "magenta";
+  rolTone: RolTone;
   userName: string;
   userSub: string;
   children: ReactNode;
@@ -33,8 +35,13 @@ export function AppShell({
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    href === pathname || (href !== "/familiar" && href !== "/personal" && pathname.startsWith(href));
+  const isActive = (href: string) => {
+    if (pathname === href) return true;
+    // Las subsecciones (3+ segmentos) se marcan activas en sus rutas hijas.
+    // Las raices de rol (2 segmentos) solo cuando coinciden exactamente.
+    if (href.split("/").length > 2) return pathname.startsWith(href);
+    return false;
+  };
 
   const navContent = (
     <nav className="flex flex-1 flex-col gap-1 px-3">
@@ -131,11 +138,12 @@ export function AppShell({
   );
 }
 
-function RolTag({ rolLabel, rolTone }: { rolLabel: string; rolTone: "verde" | "magenta" }) {
-  const tone =
-    rolTone === "magenta"
-      ? "border-magenta-200 bg-magenta-50 text-magenta-700"
-      : "border-verde-200 bg-verde-50 text-verde-700";
+function RolTag({ rolLabel, rolTone }: { rolLabel: string; rolTone: RolTone }) {
+  const tone = {
+    verde: "border-verde-200 bg-verde-50 text-verde-700",
+    magenta: "border-magenta-200 bg-magenta-50 text-magenta-700",
+    lima: "border-lima-200 bg-lima-50 text-lima-800",
+  }[rolTone];
   return (
     <div className="px-5 pb-3">
       <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-600 ${tone}`}>
@@ -153,7 +161,7 @@ function SidebarFooter({
 }: {
   userName: string;
   userSub: string;
-  rolTone: "verde" | "magenta";
+  rolTone: RolTone;
 }) {
   return (
     <div className="border-t border-carbon-200/70 p-3">

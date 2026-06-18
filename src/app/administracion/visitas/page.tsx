@@ -6,7 +6,7 @@ import { fmtFechaCorta } from "@/lib/format";
 import type { Visita } from "@/lib/types";
 import { useState } from "react";
 
-export default function PersonalVisitas() {
+export default function AdministracionVisitas() {
   const [visitas, setVisitas] = useState<Visita[]>(
     [...VISITAS].sort((a, b) => +new Date(b.fecha) - +new Date(a.fecha)),
   );

@@ -102,12 +102,3 @@ export interface PersonaAutorizada {
   vinculo: string;
   restriccion?: string;
 }
-
-export interface Kpi {
-  perspectiva: string;
-  titulo: string;
-  valor: string;
-  meta: string;
-  progreso: number; // 0..100
-  tendencia: "up" | "down" | "flat";
-}

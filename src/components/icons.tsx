@@ -89,6 +89,15 @@ export function IconLogout({ className }: IconProps) {
   );
 }
 
+export function IconHeart({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M19 14c1.5-1.5 2-3.3 2-5a4.5 4.5 0 0 0-9-1 4.5 4.5 0 0 0-9 1c0 1.7.5 3.5 2 5l7 7 7-7Z" />
+      <path d="M3.5 12h4l1.5-3 2.5 5 1.5-2.5h4" />
+    </svg>
+  );
+}
+
 export function IconCheck({ className }: IconProps) {
   return (
     <svg {...base} className={className}>

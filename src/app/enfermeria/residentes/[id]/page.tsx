@@ -20,7 +20,10 @@ export default function ResidenteDetalle({ params }: { params: { id: string } })
 
   return (
     <>
-      <Link href="/personal/residentes" className="mb-4 inline-flex items-center gap-1 text-sm font-600 text-carbon-500 hover:text-carbon-800">
+      <Link
+        href="/enfermeria/residentes"
+        className="mb-4 inline-flex items-center gap-1 text-sm font-600 text-carbon-500 hover:text-carbon-800"
+      >
         ← Volver a residentes
       </Link>
 
