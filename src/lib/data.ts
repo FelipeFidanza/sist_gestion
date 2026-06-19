@@ -292,7 +292,7 @@ export const REUNIONES: Reunion[] = [
     hora: "11:00",
     estado: "propuesta",
     participantes: ["Dra. Medica de cabecera", "Lic. Nutricion"],
-    motivo: "Seguimiento por ajuste de dieta y medicacion",
+    motivo: "Reunion mensual de seguimiento",
   },
 ];
 

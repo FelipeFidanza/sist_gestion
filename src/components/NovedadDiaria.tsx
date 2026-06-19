@@ -22,7 +22,7 @@ export function NovedadCard({ novedad }: { novedad: NovedadDiaria }) {
           <h3 className="font-display text-lg font-700 text-carbon-900">Reporte del dia</h3>
           <p className="text-sm text-carbon-400">{fmtFecha(novedad.fecha)}</p>
         </div>
-        {novedad.origenNexup && <NexupSyncBadge />}
+       
       </div>
 
       {/* Signos vitales */}

@@ -47,7 +47,7 @@ export default function FamiliarInicio() {
       </div>
 
       {/* Accesos rapidos */}
-      <div className="mb-6 grid gap-4 sm:grid-cols-3">
+      <div className="mb-6 grid gap-4 sm:grid-cols-2">
         <QuickCard
           href="/familiar/consultas"
           icon={<IconChat className="h-6 w-6" />}
@@ -62,13 +62,7 @@ export default function FamiliarInicio() {
           dato={proximaReunion ? fmtFecha(proximaReunion.fecha) : "Sin programar"}
           tone="magenta"
         />
-        <QuickCard
-          href="/familiar/visitas"
-          icon={<IconDoor className="h-6 w-6" />}
-          titulo="Visitas"
-          dato="Registrar visita"
-          tone="lima"
-        />
+        
       </div>
 
       {ultima && <NovedadCard novedad={ultima} />}

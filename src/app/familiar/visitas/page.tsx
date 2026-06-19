@@ -60,43 +60,14 @@ export default function FamiliarVisitas() {
     <>
       <PageHeader
         titulo="Mis visitas"
-        descripcion="Registra tu ingreso al llegar a la residencia. El sistema verifica que estes autorizado."
+       
       />
 
       <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
         <div className="h-fit space-y-4">
-          <form onSubmit={registrarIngreso} className="card p-5">
-            <h2 className="mb-1 font-display text-lg font-700 text-carbon-900">Registrar ingreso</h2>
-            <p className="mb-4 text-sm text-carbon-400">
-              Visita a {nombreResidente(residenteId)}
-            </p>
-            <div className="mb-4">
-              <label className="label">Documento del visitante</label>
-              <input
-                className="input"
-                placeholder="Ej. 27.845.112"
-                value={documento}
-                onChange={(e) => setDocumento(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="btn-primary w-full">
-              Verificar y registrar ingreso
-            </button>
+          
 
-            {resultado && (
-              <div
-                className={`mt-4 rounded-xl border px-4 py-3 text-sm font-medium ${
-                  resultado.ok
-                    ? "border-verde-200 bg-verde-50 text-verde-700"
-                    : "border-red-200 bg-red-50 text-red-700"
-                }`}
-              >
-                {resultado.texto}
-              </div>
-            )}
-          </form>
-
-          <div className="card p-5">
+          <div className="card mt-5 p-5">
             <p className="mb-3 text-sm font-600 text-carbon-700">Personas autorizadas</p>
             <ul className="space-y-2">
               {autorizados.map((a) => (

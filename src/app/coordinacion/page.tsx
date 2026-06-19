@@ -17,10 +17,10 @@ export default function CoordinacionPanel() {
         descripcion="Resumen de coordinacion: planificacion y seguimiento de reuniones con las familias."
       />
 
-      <div className="mb-8 grid gap-4 sm:grid-cols-3">
+      <div className="mb-8 grid gap-4 sm:grid-cols-2">
         <StatCard label="Reuniones por confirmar" value={String(porConfirmar.length)} tone="magenta" hint="Esperando al familiar" />
         <StatCard label="Proximas reuniones" value={String(proximas.length)} tone="verde" hint="Agendadas" />
-        <StatCard label="Realizadas" value={String(realizadas.length)} tone="lima" hint="Con conclusiones registradas" />
+        
       </div>
 
       <section className="card p-5">
