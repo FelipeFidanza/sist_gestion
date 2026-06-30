@@ -72,9 +72,9 @@ export default function AdministracionVisitas() {
         accion={<Badge tone="lima">{enCurso} en curso</Badge>}
       />
 
-      <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
+      <div className="flex flex-col lg:grid gap-6 lg:grid-cols-[360px_1fr]">
         {/* Recepcion */}
-        <div className="card h-fit p-5">
+        <div className="card h-fit p-5 w-full">
           <h2 className="mb-4 font-display text-lg font-700 text-carbon-900">Recepcion de visitante</h2>
           <div className="mb-3">
             <label className="label">Residente a visitar</label>

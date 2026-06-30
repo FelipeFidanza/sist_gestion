@@ -22,16 +22,16 @@ export function NovedadCard({ novedad }: { novedad: NovedadDiaria }) {
           <h3 className="font-display text-lg font-700 text-carbon-900">Reporte del dia</h3>
           <p className="text-sm text-carbon-400">{fmtFecha(novedad.fecha)}</p>
         </div>
-       
+
       </div>
 
       {/* Signos vitales */}
-      <div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {/*<div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <Vital label="Presion arterial" value={novedad.signosVitales.presion} />
         <Vital label="Temperatura" value={novedad.signosVitales.temperatura} />
         <Vital label="Saturacion O2" value={novedad.signosVitales.saturacion} />
         <Vital label="Frec. cardiaca" value={novedad.signosVitales.frecuenciaCardiaca} />
-      </div>
+      </div>*/}
 
       {/* Categorias */}
       <div className="grid gap-3 sm:grid-cols-2">
