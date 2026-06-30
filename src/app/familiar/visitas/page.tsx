@@ -60,18 +60,18 @@ export default function FamiliarVisitas() {
     <>
       <PageHeader
         titulo="Mis visitas"
-       
+
       />
 
-      <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
-        <div className="h-fit space-y-4">
-          
+      <div className="flex flex-col lg:grid gap-6 lg:grid-cols-[360px_1fr]">
+        <div className="h-fit space-y-4 w-full">
 
-          <div className="card mt-5 p-5">
+
+          <div className="card lg:mt-7 p-5">
             <p className="mb-3 text-sm font-600 text-carbon-700">Personas autorizadas</p>
             <ul className="space-y-2">
               {autorizados.map((a) => (
-                <li key={a.documento} className="flex items-center justify-between gap-2 text-sm">
+                <li key={a.documento} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm">
                   <span className="text-carbon-700">
                     {a.nombre}{" "}
                     <span className="text-carbon-400">· {a.vinculo}</span>
@@ -89,7 +89,7 @@ export default function FamiliarVisitas() {
 
         <div>
           <p className="mb-3 text-sm font-600 text-carbon-500">Historial de visitas ({visitas.length})</p>
-          <div className="overflow-hidden card">
+          <div className="overflow-auto card">
             <table className="w-full text-sm">
               <thead className="bg-carbon-50 text-left text-xs uppercase tracking-wide text-carbon-400">
                 <tr>

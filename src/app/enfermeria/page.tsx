@@ -44,9 +44,9 @@ export default function EnfermeriaPanel() {
         />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      <div className="flex flex-col lg:grid gap-6 lg:grid-cols-2">
         {/* Consultas pendientes */}
-        <section className="card p-5">
+        <section className="card p-5 w-full">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-display text-lg font-700 text-carbon-900">Consultas por responder</h2>
             <Link href="/enfermeria/consultas" className="text-sm font-600 text-verde-700 hover:underline">
@@ -76,7 +76,7 @@ export default function EnfermeriaPanel() {
         </section>
 
         {/* Residentes a seguir */}
-        <section className="card p-5">
+        <section className="card p-5 w-full">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-display text-lg font-700 text-carbon-900">Residentes a seguir hoy</h2>
             <Link href="/enfermeria/residentes" className="text-sm font-600 text-verde-700 hover:underline">
